@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorteio de Nomes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>🎲 Sorteio de Nomes</h1>
+    <p class="subtitle">Adicione de 2 a 10 pessoas e sorteie.</p>
+
+    <form id="add-form" class="add-form" autocomplete="off">
+      <input
+        type="text"
+        id="name-input"
+        placeholder="Digite um nome"
+        maxlength="30"
+        aria-label="Nome do participante"
+      />
+      <button type="submit" id="add-btn">Adicionar</button>
+    </form>
+
+    <p id="feedback" class="feedback" role="alert"></p>
+
+    <div class="counter"><span id="count">0</span>/10 participantes</div>
+
+    <ul id="names-list" class="names-list" aria-label="Lista de participantes"></ul>
+    <p id="empty-msg" class="empty-msg">Nenhum nome adicionado ainda.</p>
+
+    <button id="draw-btn" class="draw-btn" hidden>🎯 Sortear</button>
+
+    <p id="result" class="result" aria-live="polite"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

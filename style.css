@@ -1,0 +1,238 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --item: #273449;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --highlight: #facc15;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin: 6px 0 20px;
+  font-size: 0.95rem;
+}
+
+/* Formulário */
+.add-form {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: var(--item);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.add-form button {
+  padding: 10px 16px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.add-form button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.feedback {
+  min-height: 1.2em;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+.counter {
+  margin: 8px 0 10px;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Lista (altura de ~5 itens, com rolagem; o sorteado é centralizado) */
+.names-list {
+  position: relative;
+  list-style: none;
+  max-height: 290px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 2px;
+  scrollbar-width: thin;
+}
+
+.names-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 6px 10px;
+  background: var(--item);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s, transform 0.2s;
+}
+
+.names-list .name {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.names-list li input[type="text"] {
+  padding: 6px 8px;
+  background: var(--bg);
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #475569;
+}
+
+.actions button:hover:not(:disabled) {
+  background: #334155;
+}
+
+.actions .remove:hover:not(:disabled) {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.actions .save {
+  background: var(--success);
+  border-color: var(--success);
+  color: #052e16;
+}
+
+/* Destaque durante o sorteio */
+.names-list li.active {
+  background: #3b4a66;
+  border-color: var(--primary);
+}
+
+/* Destaque do sorteado */
+.names-list li.winner {
+  background: var(--highlight);
+  border-color: #eab308;
+  color: #1c1917;
+  font-weight: 700;
+  transform: scale(1.04);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.55);
+  animation: pop 0.5s ease;
+}
+
+.names-list li.winner .actions button {
+  color: #1c1917;
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1.04); }
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px 0;
+  font-size: 0.95rem;
+}
+
+.draw-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  background: var(--success);
+  color: #052e16;
+  font-size: 1.1rem;
+}
+
+.draw-btn:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+.result {
+  min-height: 1.6em;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--highlight);
+}
+
+[hidden] {
+  display: none !important;
+}
