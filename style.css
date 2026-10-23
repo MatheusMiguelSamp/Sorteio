@@ -118,11 +118,12 @@ button:disabled {
   position: relative;
   list-style: none;
   max-height: 290px;
+  overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding-right: 2px;
+  padding: 8px 14px;
   scrollbar-width: thin;
 }
 
@@ -189,7 +190,7 @@ button:disabled {
   color: #1c1917;
   font-weight: 700;
   transform: scale(1.04);
-  box-shadow: 0 0 18px rgba(250, 204, 21, 0.55);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.55);
   animation: pop 0.5s ease;
 }
 
